@@ -53,4 +53,8 @@ class OtherPair<V> {
     public V getSecondValue() {
         return value2;
     }
+
+    public <V> V abc (V val) {
+        return val;
+    }
 }
