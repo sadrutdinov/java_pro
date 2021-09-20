@@ -14,7 +14,6 @@ public class ArrayListMethods2 {
         studentList.add(st1);
         studentList.add(st2);
         studentList.add(st3);
-        studentList.add(st3);
 
 
         System.out.println(studentList);
@@ -22,6 +21,9 @@ public class ArrayListMethods2 {
         studentList.remove(st4);
 
         System.out.println(studentList);
+
+
+        System.out.println(studentList.indexOf(st1));
 
 
     }
