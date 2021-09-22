@@ -17,29 +17,39 @@ public class HashCodeEx1 {
         map.put(st3, 9.2);
 
         System.out.println(map);
-
-        Student st4 = new Student("Zaur", "Tregulov", 3);
-        Student st5 = new Student("Zaur", "Sidorov", 4);
-
-        boolean result = map.containsKey(st4);
-        System.out.println("result = " + result);
-//        System.out.println(st1.equals(st4));
+        System.out.println(map.containsKey(st1));
+        System.out.println(st1.hashCode());
 
 
-        System.out.println(st4.hashCode());
-        System.out.println(st5.hashCode());
+        System.out.println(map.containsKey(st1));
+        System.out.println(st1.hashCode());
+//        Student st4 = new Student("Zaur", "Tregulov", 3);
+//        Student st5 = new Student("Zaur", "Sidorov", 4);
+//
+//        boolean result = map.containsKey(st4);
+//        System.out.println("result = " + result);
+////        System.out.println(st1.equals(st4));
+//
+//
+//        System.out.println(st4.hashCode());
+//        System.out.println(st5.hashCode());
+//
+//        for (Map.Entry<Student, Double> entryMap: map.entrySet()) {
+//            System.out.println( entryMap.getKey() + " : " + entryMap.getValue());
+//        }
+//
+//
+//        Map<Integer, String> map2 = new HashMap<>(16, 0.75f);
 
-        for (Map.Entry<Student, Double> entryMap: map.entrySet()) {
-            System.out.println( entryMap.getKey() + " : " + entryMap.getValue());
-        }
+
     }
 }
 
 
-class Student {
-    String name;
-    String surname;
-    int course;
+    final class  Student {
+    private final String name;
+    private final String surname;
+    private final int course;
 
     public Student(String name, String surname, int course) {
         this.name = name;
