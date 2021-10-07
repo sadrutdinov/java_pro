@@ -1,4 +1,4 @@
-package com.sai.collections;
+package com.sai.collections.list_intterface;
 
 import java.util.ArrayList;
 
