@@ -1,10 +1,11 @@
 package com.sai.lambda;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class StudentInfo {
     void testStudents(ArrayList<Student> students, StudentsCheck check) {
-        for(Student s: students) {
+        for (Student s : students) {
             if (check.check(s)) {
                 System.out.println(s);
             }
@@ -30,15 +31,18 @@ class Test {
         students.add(st5);
 
         StudentInfo info = new StudentInfo();
-        info.testStudents(students, (Student s) -> { return s.age<30;});
-        System.out.println("-----------------");
-//        students.forEach(student -> {if (student.age < 30) {
-//            System.out.println(student);
-//        }});
+//        info.testStudents(students, (Student s) -> {
+//            return s.age < 30;
+//        });
 //        System.out.println("-----------------");
-//        info.testStudents(students, (Student s) -> { return s.avgGrade>8;});
+//
+//        StudentsCheck sc = s -> s.age < 30;
+//
+//        info.testStudents(students, sc);
 
+        Collections.sort(students, (s1, s2) -> s1.course - s2.course);
 
+        System.out.println(students);
 
     }
 }

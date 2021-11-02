@@ -6,7 +6,12 @@ public class Test2 {
     }
 
     public static void main(String[] args) {
-        def((String s) -> {return s.length();});
+
+
+        I test = s -> s.length();
+
+        def(test);
+
     }
 }
 
