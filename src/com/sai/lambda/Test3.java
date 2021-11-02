@@ -1,12 +1,19 @@
 package com.sai.lambda;
 
 import java.util.ArrayList;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class Test3 {
     public static void main(String[] args) {
         ArrayList<Car> ourCars = createThreeCars(() -> new Car("Nissan Tiida", "Silver Metallic", 1.6));
-        System.out.println("ourCars: " + ourCars.size());
+        System.out.println("ourCars: " + ourCars);
+
+        changeCar(ourCars.get(0), car -> {
+            car.color = "black";
+            car.engine = 2.4;
+            System.out.println("upgraded car: " + car);
+        });
     }
 
     public static ArrayList<Car> createThreeCars(Supplier<Car> carSupplier) {
@@ -16,6 +23,10 @@ public class Test3 {
             al.add(carSupplier.get());
         }
         return al;
+    }
+
+    public static void changeCar(Car car, Consumer<Car> carConsumer) {
+        carConsumer.accept(car);
     }
 }
 
