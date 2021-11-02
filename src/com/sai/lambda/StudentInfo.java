@@ -1,12 +1,12 @@
 package com.sai.lambda;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.function.Predicate;
 
 public class StudentInfo {
-    void testStudents(ArrayList<Student> students, StudentsCheck check) {
+    void testStudents(ArrayList<Student> students, Predicate<Student> pr) {
         for (Student s : students) {
-            if (check.check(s)) {
+            if (pr.test(s)) {
                 System.out.println(s);
             }
         }
@@ -31,23 +31,28 @@ class Test {
         students.add(st5);
 
         StudentInfo info = new StudentInfo();
-//        info.testStudents(students, (Student s) -> {
-//            return s.age < 30;
-//        });
-//        System.out.println("-----------------");
-//
-//        StudentsCheck sc = s -> s.age < 30;
-//
-//        info.testStudents(students, sc);
 
-        Collections.sort(students, (s1, s2) -> s1.course - s2.course);
 
-        System.out.println(students);
+        Predicate<Student> p1 = s -> s.age < 30;
+        Predicate<Student> p2 = s -> s.avgGrade > 7.5;
+        Predicate<Student> p3 = s -> s.sex == 'M';
+        Predicate<Student> p4 = p1.and(p2).and(p3);
+        Predicate<Student> p5 = p1.or(p3);
+        Predicate<Student> p6 = p1.negate();
+
+
+        info.testStudents(students, p1);
+        System.out.println("-----------------");
+        info.testStudents(students, p2);
+        System.out.println("-----------------");
+        info.testStudents(students, p3);
+        System.out.println("-----------------");
+        info.testStudents(students, p4);
+        System.out.println("-----------------");
+        info.testStudents(students, p5);
+        System.out.println("-----------------");
+        info.testStudents(students, p6);
+
 
     }
 }
-
-interface StudentsCheck {
-    boolean check(Student student);
-}
-
