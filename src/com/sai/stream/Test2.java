@@ -3,6 +3,7 @@ package com.sai.stream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Test2 {
     public static void main(String[] args) {
@@ -19,11 +20,15 @@ public class Test2 {
         students.add(st4);
         students.add(st5);
 
-        List<Student> collect = students.stream()
-                .filter(student -> student.getAge() > 22 && student.getAvgGrade() < 7.2)
-                .collect(Collectors.toList());
+//        List<Student> collect = students.stream()
+//                .filter(student -> student.getAge() > 22 && student.getAvgGrade() < 7.2)
+//                .collect(Collectors.toList());
+//
+//        System.out.println(collect);
 
-        System.out.println(collect);
+
+        Stream<Student> stream = Stream.of(st1, st2, st3, st4, st5);
+
     }
 }
 
