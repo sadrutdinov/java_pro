@@ -29,6 +29,12 @@ public class Test2 {
 
         Stream<Student> stream = Stream.of(st1, st2, st3, st4, st5);
 
+
+        List<Student> collect = students.stream().sorted((s1, s2) -> s1.getName().compareTo(s2.getName()))
+                .collect(Collectors.toList());
+
+        System.out.println(collect);
+
     }
 }
 
