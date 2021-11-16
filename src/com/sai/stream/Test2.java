@@ -20,6 +20,16 @@ public class Test2 {
         students.add(st4);
         students.add(st5);
 
+
+        students.stream().filter(student -> student.getSex() == 'F')
+                .map(student -> {
+                    student.setName(student.getName().toUpperCase());
+                    return student;
+                })
+                .sorted((x, y) -> x.getAge() - y.getAge())
+                .forEach(System.out::println);
+
+
 //        List<Student> collect = students.stream()
 //                .filter(student -> student.getAge() > 22 && student.getAvgGrade() < 7.2)
 //                .collect(Collectors.toList());
@@ -27,13 +37,13 @@ public class Test2 {
 //        System.out.println(collect);
 
 
-        Stream<Student> stream = Stream.of(st1, st2, st3, st4, st5);
-
-
-        List<Student> collect = students.stream().sorted((s1, s2) -> s1.getName().compareTo(s2.getName()))
-                .collect(Collectors.toList());
-
-        System.out.println(collect);
+//        Stream<Student> stream = Stream.of(st1, st2, st3, st4, st5);
+//
+//
+//        List<Student> collect = students.stream().sorted((s1, s2) -> s1.getName().compareTo(s2.getName()))
+//                .collect(Collectors.toList());
+//
+//        System.out.println(collect);
 
     }
 }
