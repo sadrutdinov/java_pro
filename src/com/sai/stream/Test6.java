@@ -16,7 +16,9 @@ public class Test6 {
         Stream<Integer> stream5 = Stream.of(1,2,3,4,5,1,2,3);
 
 
-        stream5.distinct().forEach(System.out::println);
+//        stream5.distinct().forEach(System.out::println);
+
+        System.out.println(stream5.count());
 
 
     }
