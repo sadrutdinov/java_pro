@@ -18,7 +18,7 @@ public class Test6 {
 
 //        stream5.distinct().forEach(System.out::println);
 
-        System.out.println(stream5.count());
+        System.out.println(stream5.distinct().peek(System.out::println).count());
 
 
     }
