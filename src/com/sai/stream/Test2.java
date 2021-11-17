@@ -2,6 +2,7 @@ package com.sai.stream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -21,13 +22,25 @@ public class Test2 {
         students.add(st5);
 
 
-        students.stream().filter(student -> student.getSex() == 'F')
+//        students.stream().filter(student -> student.getSex() == 'F')
+//                .map(student -> {
+//                    student.setName(student.getName().toUpperCase());
+//                    return student;
+//                })
+//                .sorted((x, y) -> x.getAge() - y.getAge())
+//                .forEach(System.out::println);
+
+
+        Student first = students.stream().filter(student -> student.getSex() == 'F')
                 .map(student -> {
                     student.setName(student.getName().toUpperCase());
                     return student;
                 })
                 .sorted((x, y) -> x.getAge() - y.getAge())
-                .forEach(System.out::println);
+                .findFirst().get();
+
+
+        System.out.println(first);
 
 
 //        List<Student> collect = students.stream()
