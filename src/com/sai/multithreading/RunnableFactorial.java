@@ -2,6 +2,7 @@ package com.sai.multithreading;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 public class RunnableFactorial {
@@ -10,10 +11,16 @@ public class RunnableFactorial {
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-        executorService.execute(new Factorial(10));
+        Factorial factorial = new Factorial(10);
+        executorService.execute(factorial);
+
+        Future future = executorService.submit(factorial);
+
+        System.out.println(future.isDone());
 
         executorService.shutdown();
-        executorService.awaitTermination(10, TimeUnit.SECONDS);
+        executorService.awaitTermination(6, TimeUnit.SECONDS);
+        System.out.println(future.isDone());
 
         System.out.println(factorialResult);
     }
