@@ -13,29 +13,18 @@ public class FileWriterEx {
 
         String s = "Privet";
 
-        FileWriter writer = null;
+        try (FileWriter writer = new FileWriter("src/com/sai/work_with_files/test1.txt", true)) {
 
-        try {
-            writer = new FileWriter("src/com/sai/work_with_files/test1.txt", true);
-//            for (int i = 0; i < rubai.length(); i++) {
-//                writer.write(rubai.charAt(i));
-//            }
 
             writer.write(rubai);
             writer.write(s);
             System.out.println("done");
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            writer.close();
         }
 
 
     }
-
-
-
-
 
 
 }
