@@ -34,10 +34,33 @@ public class Regex2 {
 
 //        String s1 = "abcd abce ====! = =ц1 abc5abc6abch __fa__";
 //        Pattern pattern1 = Pattern.compile("\\W+"); //
+//
+//        String s1 = "poka abc zaur dom kino helloworld";
+//        Pattern pattern1 = Pattern.compile("\\w{4}"); //
+//
+//        String s1 = "poka       abccd        zaur dom kino helloworld";
+//        Pattern pattern1 = Pattern.compile("\\w\\s+\\w"); //  \\s == [\t\r\n\f]
 
-        String s1 = "poka abc zaur dom kino helloworld";
-        Pattern pattern1 = Pattern.compile("\\w{4}"); //
+//        String s1 = "abcd abce3 abcdd78cdsmvsd6ffvdsv";
+//        Pattern pattern1 = Pattern.compile("\\D{2,6}"); //
 
+//        String s1 = "ABCABABABA";
+//        Pattern pattern1 = Pattern.compile("(AB){2,3}"); //
+
+//        String s1 = "ABCDABABABAABCABDABABAABCABABABA";
+//        Pattern pattern1 = Pattern.compile("D(AB){2,}"); //
+//
+
+//        String s1 = "DABABAABCABDABABDA";
+//        Pattern pattern1 = Pattern.compile("D(AB)*"); //
+
+//
+//        String s1 = "DABABAABCABDABABDA";
+//        Pattern pattern1 = Pattern.compile("\\ADAB"); //
+
+
+        String s1 = "DABABAABCABDABABDA";
+        Pattern pattern1 = Pattern.compile("\\ZBDA"); //
 
         Matcher matcher = pattern1.matcher(s1);
 
