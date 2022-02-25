@@ -1,17 +1,18 @@
 package com.algorithmsAndDataStructures;
 
+import java.util.Arrays;
+
 public class Fibbonacci {
     public static void main(String[] args) {
 
+        int n = 100;
 
-        // 0 1 1 2 3
-        System.out.println(fibNaive(3));
-        System.out.println(fibNaive(5));
-        System.out.println(fibNaive(10));
+        long[] mem = new long[n+1];
 
-        System.out.println(fibMain(10));
-        System.out.println(fibMain(100));
-        System.out.println(fibEffective(100));
+        Arrays.fill(mem, -1);
+
+        System.out.println(fibNaive(n, mem));
+
 
 
 
@@ -19,10 +20,18 @@ public class Fibbonacci {
     }
 
     // наивный медленный очевидный
-    private static long fibNaive(int n) {
+    private static long fibNaive(int n, long[] mem) {
+
+        if (mem[n] != -1) {
+            return mem[n];
+        }
+
         if (n <= 1) return n;
 
-        return fibNaive(n - 1) + fibNaive(n - 2);
+        long result =  fibNaive(n - 1, mem) + fibNaive(n - 2, mem );
+        mem[n] = result;
+
+        return result;
     }
 
     private static long fibMain(int n) {
