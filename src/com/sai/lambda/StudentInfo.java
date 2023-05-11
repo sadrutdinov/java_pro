@@ -65,11 +65,10 @@ class Test {
     private static double avgOfSomething(List<Student> list, Function<Student, Double> f) {
         double result = 0;
 
-        for (Student student: list
-             ) {
+        for (Student student : list) {
             result += f.apply(student);
         }
 
-        return result/list.size();
+        return result / list.size();
     }
 }

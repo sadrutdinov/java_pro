@@ -1,6 +1,7 @@
 package com.sai.multithreading;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.*;
 
@@ -24,11 +25,11 @@ public class SumNumbers {
             futureResults.add(futurePartSum);
         }
 
-        futureResults.forEach(f-> {
+        futureResults.forEach(f -> {
             try {
-                sum+=f.get();
+                sum += f.get();
             } catch (InterruptedException | ExecutionException e) {
-                e.printStackTrace();
+                throw new RuntimeException(e);
             }
         });
 
@@ -37,6 +38,14 @@ public class SumNumbers {
         System.out.println("Total sum = " + sum);
     }
 
+//    public static void main(String[] args) {
+//        long result = 0;
+//        for (long i = 1; i <= value; i++) {
+//            result += i;
+//        }
+//
+//        System.out.println(result);
+//    }
 }
 
 class PartialSum implements Callable<Long> {
@@ -56,8 +65,7 @@ class PartialSum implements Callable<Long> {
             localSum += i;
         }
 
-        String format = String.format("sum from %d to %d = %d", from, to, localSum);
-        System.out.println(format);
+        System.out.printf("sum from %d to %d = %d%n", from, to, localSum);
 
         return localSum;
     }

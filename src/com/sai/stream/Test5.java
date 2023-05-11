@@ -9,7 +9,7 @@ public class Test5 {
 //        array = Arrays.stream(array).sorted().toArray();
 //        System.out.println(Arrays.toString(array));
         int result = Arrays.stream(array).filter(e -> e % 2 == 1)
-                .map(e -> e * 2).reduce((a, e) -> a + e).getAsInt();
+                .map(e -> e * 2).reduce(Integer::sum).getAsInt();
 
         System.out.println(result);
     }

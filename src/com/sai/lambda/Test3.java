@@ -6,7 +6,10 @@ import java.util.function.Supplier;
 
 public class Test3 {
     public static void main(String[] args) {
-        ArrayList<Car> ourCars = createThreeCars(() -> new Car("Nissan Tiida", "Silver Metallic", 1.6));
+        ArrayList<Car> ourCars = createThreeCars(() ->
+                new Car("Nissan Tiida",
+                        "Silver Metallic",
+                        1.6));
         System.out.println("ourCars: " + ourCars);
 
         changeCar(ourCars.get(0), car -> {

@@ -1,7 +1,6 @@
 package com.sai.lambda;
 
 import java.util.ArrayList;
-import java.util.function.Predicate;
 
 public class RemoveIf {
     public static void main(String[] args) {
@@ -12,11 +11,9 @@ public class RemoveIf {
         arrayList.add("ok");
         arrayList.add("uchim java");
         arrayList.add("a imenno lambdas");
+        System.out.println(arrayList);
 
-//        Predicate<String> predicate = element-> element.length() < 5;
-//        arrayList.removeIf(predicate);
-
-        arrayList.removeIf(element-> element.length() < 5);
+        arrayList.removeIf(element -> element.length() < 5);
 
         System.out.println(arrayList);
     }

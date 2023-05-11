@@ -12,7 +12,7 @@ public class Test1 {
         list.add("ok");
         list.add("poka");
 
-        List<Integer> collect = list.stream().map(s -> s.length()).collect(Collectors.toList());
+        List<Integer> collect = list.stream().map(String::length).collect(Collectors.toList());
 
 //        System.out.println(collect);
 

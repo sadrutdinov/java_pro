@@ -22,16 +22,13 @@ public class Test8 {
 
 //        Map<Integer, List<Student>> map =
 //                students.stream()
-//                .map(el -> {
-//                    el.setName(el.getName().toUpperCase());
-//                    return el;
-//                })
-//                .collect(Collectors.groupingBy(el -> el.getCourse()));
+//                        .peek(el -> el.setName(el.getName().toUpperCase()))
+//                        .collect(Collectors.groupingBy(Student::getCourse));
 //
 //
-//        for (Map.Entry<Integer, List<Student>> entry  : map.entrySet()
-//             ) {
-//            System.out.println(entry.getKey() + ": "+ entry.getValue());
+//        for (Map.Entry<Integer, List<Student>> entry : map.entrySet()
+//        ) {
+//            System.out.println(entry.getKey() + ": " + entry.getValue());
 //        }
 
         Map<Boolean, List<Student>> map = students.stream()
